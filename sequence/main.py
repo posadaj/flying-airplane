@@ -57,6 +57,10 @@ def test_5():
 	response = layup_sequence(5)
 	assert response == expected
 
+def test_10k():
+	expected = -1   # Lets run the algo and then see the result
+	assert layup_sequence(10000) == expected
+
 
 def main():
 	return 0
