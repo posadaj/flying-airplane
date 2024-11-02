@@ -1,4 +1,4 @@
-
+import pytest
 
 def layup_sequence(n: int):
 	"""
@@ -14,6 +14,16 @@ def layup_sequence(n: int):
 	Returns:
 	  The value of the Layup Sequence at index N.
 	"""
+	if n <= 0:
+		return 0
+
+	if n == 1:
+		return 1
+
+	if n == 2:
+		return 2
+
+
 	return 0
 
 
@@ -27,7 +37,7 @@ def test_base_case2():
 	assert response == 2
 
 
-@pytest.parametrize("n_value", [0, -5, -100])
+@pytest.mark.parametrize("n_value", [0, -5, -100])
 def test_values_less_than_1_return_0(n_value):
 	response = layup_sequence(n_value)
 	assert response == 0
@@ -40,8 +50,7 @@ def test_5():
 
 
 def main():
-	# TODO
-
+	return 0
 
 
 if __name__ == '__main__':
