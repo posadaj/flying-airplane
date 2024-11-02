@@ -23,8 +23,9 @@ def layup_sequence(n: int):
 	if n == 2:
 		return 2
 
-
-	return 0
+	if (n % 2) == 0:
+		return layup_sequence(n-1) + layup_sequence(n-2)
+	return layup_sequence(n-1) - layup_sequence(n-2)
 
 
 def test_base_case1():
@@ -43,8 +44,16 @@ def test_values_less_than_1_return_0(n_value):
 	assert response == 0
 
 def test_5():
-	# TODO
-	expected = -1 
+	"""
+	S(5)
+	= S(4) - S(3)
+	= [S(3) + S(2)] - [S(2) - S(1)]
+	= [S(2) - S(1) + 2] - [2 - 1]
+	= [2 - 1 + 2] - [2 - 1]
+	= 3 - 1
+	= 2
+	"""
+	expected = 2
 	response = layup_sequence(5)
 	assert response == expected
 
